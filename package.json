@@ -1,1 +1,13 @@
+{
+  "name": "newsintel-api",
+  "version": "1.0.0",
+  "description": "NewsIntel RSS API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
 
