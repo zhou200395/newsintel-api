@@ -86,27 +86,71 @@ const MOCK_NEWS = [
     title: '比特币突破11万美元，加密货币市场创新高',
     summary: '比特币价格历史上首次突破11万美元大关，推动整个加密货币市场市值创新高...',
     content: '比特币价格突破11万美元，以太坊、Solana等主流加密货币跟随上涨。机构投资者持续流入，美国比特币ETF资金规模不断扩大。',
-    source: 'CNBC',
-    url: 'https://cnbc.com/news/bitcoin-110k',
-    publishTime: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
-    category: 'finance',
-    impact: 'high',
-    goldWeight: 85,
-    keywords: ['比特币', '加密货币', 'ETF'],
-    entities: ['SEC'],
-    sentiment: 'positive',
-    isBreaking: false
+  // RSS源配置 - 中外权威媒体
+const RSS_SOURCES = {
+  // 中国权威媒体
+  '人民日报': {
+    name: '人民日报',
+    url: 'https://r.jina.ai/http://www.people.com.cn/rss/politics.xml',
+    category: 'politics',
+    weight: 95
   },
-  {
-    id: 'mock-5',
-    title: 'OpenAI发布GPT-5，推理能力大幅提升',
-    summary: 'OpenAI正式发布GPT-5模型，在数学推理和代码生成方面实现重大突破...',
-    content: 'OpenAI正式发布GPT-5模型，在数学推理和代码生成方面实现重大突破。新模型在多项基准测试中超越人类专家水平。',
-    source: 'Reuters',
-    url: 'https://reuters.com/news/gpt5',
-    publishTime: new Date(Date.now() - 10 * 60 * 60 * 1000).toISOString(),
-    category: 'technology',
-    impact: 'high',
+  '新华社': {
+    name: '新华社',
+    url: 'https://r.jina.ai/http://www.xinhuanet.com/politics/news_politics.xml',
+    category: 'politics',
+    weight: 93
+  },
+  '财新网': {
+    name: '财新网',
+    url: 'https://r.jina.ai/http://china.caixin.com/rss.xml',
+    category: 'finance',
+    weight: 88
+  },
+  '第一财经': {
+    name: '第一财经',
+    url: 'https://r.jina.ai/http://www.yicai.com/rss/news.xml',
+    category: 'finance',
+    weight: 85
+  },
+  '环球时报': {
+    name: '环球时报',
+    url: 'https://r.jina.ai/http://www.globaltimes.cn/rss.xml',
+    category: 'politics',
+    weight: 80
+  },
+  '澎湃新闻': {
+    name: '澎湃新闻',
+    url: 'https://r.jina.ai/http://www.thepaper.cn/rss.xml',
+    category: 'politics',
+    weight: 82
+  },
+  '华尔街见闻': {
+    name: '华尔街见闻',
+    url: 'https://r.jina.ai/http://wallstreetcn.com/rss.xml',
+    category: 'finance',
+    weight: 84
+  },
+  // 国际媒体
+  'BBC': {
+    name: 'BBC',
+    url: 'https://feeds.bbci.co.uk/news/world/rss.xml',
+    category: 'politics',
+    weight: 88
+  },
+  'Reuters': {
+    name: 'Reuters',
+    url: 'https://r.jina.ai/http://feeds.reuters.com/reuters/businessNews',
+    category: 'finance',
+    weight: 90
+  },
+  'CNBC': {
+    name: 'CNBC',
+    url: 'https://r.jina.ai/http://feeds.cnbc.com/id/100003114/device/rss/rss.html',
+    category: 'finance',
+    weight: 82
+  }
+};
     goldWeight: 82,
     keywords: ['OpenAI', 'GPT-5', 'AI'],
     entities: ['OpenAI', '微软'],
@@ -403,3 +447,4 @@ server.listen(PORT, () => {
   console.log(`NewsIntel API 服务器运行在端口 ${PORT}`);
   console.log(`API地址: http://localhost:${PORT}/api/news`);
 });
+
